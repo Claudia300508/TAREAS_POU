@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de Inventario - Tarea 7</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="contenedor-principal">
+    <header>
+            <h1>Gestión de Inventario de Productos</h1>
+            <p>Módulo 7: Manipulación del DOM, Eventos, Formularios y Estructuras de Datos</p>
+        </header>
+
+<!-- Indicadores / Resumen -->
+<section class="seccion-indicadores">
+  <div class="tarjeta-indicador">
+  <h3>Total Productos</h3>
+   <p id="total-productos">0</p>
+  </div>
+  <div class="tarjeta-indicador">
+   <h3>Total Unidades</h3>
+   <p id="total-unidades">0</p>
+   </div>
+ <div class="tarjeta-indicador">
+    <h3>Valor Total ($)</h3>
+    <p id="valor-total">$0.00</p>
+   </div>
+   <div class="tarjeta-indicador">
+   <h3>Agotados</h3>
+   <p id="total-agotados">0</p>
+   </div>
+ </section>
+
+ <!-- Formulario de Alta de Producto -->
+     <section class="seccion-formulario">
+     <h2>Agregar Nuevo Producto</h2>
+     <form id="formulario-producto">
+     <div class="grupo-formulario">
+     <label for="nombre">Nombre del Producto:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ej. Teclado Mecánico">
+</div>
+<div class="grupo-formulario">
+<label for="categoria">Categoría:</label>
+<input type="text" id="categoria" name="categoria" placeholder="Ej. Periféricos">
+ </div>
+ <div class="grupo-formulario">
+   <label for="cantidad">Cantidad:</label>
+   <input type="number" id="cantidad" name="cantidad" min="1" placeholder="Ej. 10">
+   </div>
+   <div class="grupo-formulario">
+  <label for="precio">Precio ($):</label>
+ <input type="number" id="precio" name="precio" step="0.01" min="0" placeholder="Ej. 45.99">
+  </div>
+ <button type="submit" class="btn-primario">Agregar Producto</button>
+  </form>
+    <div id="mensaje-error" class="oculto"></div>
+   </section>
+
+   <!-- Sección de Filtros y Tabla de Inventario -->
+    <section class="seccion-tabla">
+    <div class="controles-tabla">
+     <div class="grupo-filtro">
+    <label for="filtro-categoria">Filtrar por categoría:</label>
+   <select id="filtro-categoria">
+    <option value="todas">Todas</option>
+    </select>
+    </div>
+   </div>
+
+  <div class="contenedor-tabla">
+    <table>
+ <thead>
+   <tr>
+   <th>Nombre</th>
+  <th>Categoría</th>
+<th>Cantidad</th>
+<th>Precio</th>
+ <th>Subtotal</th>
+<th>Estado</th>
+<th>Acciones</th>
+</tr>
+ </thead>
+<tbody id="cuerpo-inventario">
+ 
+    <!-- Las filas se insertarán dinámicamente -->
+     </tbody>
+    </table>
+    <div id="mensaje-vacio" class="oculto">No hay productos que coincidan con la categoría seleccionada.</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
